@@ -25,3 +25,4 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - [X] Auth Scaffolding 
 - [x] Create Product Model and populate fillable property
 - [x] Make Migration for products
+- [x] Create Product Controller (resourceful)
