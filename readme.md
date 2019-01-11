@@ -23,4 +23,5 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 ## Tasks
 - [X] Auth Scaffolding 
-- [ ] 
+- [x] Create Product Model and populate fillable property
+- [x] Make Migration for products
