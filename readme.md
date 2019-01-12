@@ -22,12 +22,14 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
 
 ## Tasks
-- [X] Auth Scaffolding 
-- [x] Create Product Model and populate fillable property
-- [x] Make Migration for products
-- [x] Create Product Controller (resourceful)
-- [x] List Products
-- [x] Edit product
-- [x] Delete Product
-- [x] Separate error message and success flash message
-- [x] Simple refactoring in controller [validated inputs]
+- [X] 1 Auth Scaffolding 
+- [x] 2 Create Product Model and populate fillable property
+- [x] 3 Make Migration for products
+- [x] 3 Create Product Controller (resourceful)
+- [x] 4 List Products
+- [x] 4 Edit product
+- [x] 5 Delete Product
+- [x] form validation
+- [x] 7 Separate error message and success flash message
+- [x] 8 Simple refactoring in controller [validated inputs]
+- [x] 9 

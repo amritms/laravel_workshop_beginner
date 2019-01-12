@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 use Session;
 
@@ -55,7 +56,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
         //
     }
@@ -63,12 +64,12 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Product $product
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        $product = \App\Product::find($id);
 
         return view('products.edit', compact('product'));
 
@@ -77,11 +78,12 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param $product
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         $input = $request->validate([
             'name' => 'required',
@@ -89,8 +91,6 @@ class ProductController extends Controller
             'count' => 'required',
             'price' => 'required'
         ]);
-
-        $product = \App\Product::find($id);
 
         Session::flash('success', 'Product Updated successfully');
 
@@ -105,9 +105,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        $product = \App\Product::find($id);
         $product->delete();
 
         return redirect('/products');
