@@ -12,6 +12,7 @@
                 <th>Description</th>
                 <th>Count</th>
                 <th>Price</th>
+                <th>Actions</th>
             </tr>
             </thead>
 
@@ -23,6 +24,14 @@
                         <td>{{$product->description}}</td>
                         <td>{{$product->count}}</td>
                         <td>{{$product->price}}</td>
+                        <th><a href="{{ url('products/'. $product->id .'/edit')}}">Edit</a>
+
+                            <form action="{{url('products/' . $product->id)}}" method="post">
+                                @csrf
+                                <input type="hidden" name="_method" value="delete">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </th>
                     </tr>
                 @endforeach
             </tbody>
