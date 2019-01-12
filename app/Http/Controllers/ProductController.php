@@ -37,12 +37,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        \App\Product::create([
-            'name' => $request->get('name'),
-            'description' => $request->get('description'),
-            'price' => $request->get('price'),
-            'count' => $request->get('count')
+        $input = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'count' => 'required',
+            'price' => 'required'
         ]);
+
+        \App\Product::create($input);
 
         return redirect('/products');
     }
@@ -90,14 +92,9 @@ class ProductController extends Controller
 
         $product = \App\Product::find($id);
 
-        $product->name = $request->get('name');
-        $product->description = $request->get('description');
-        $product->count = $request->get('count');
-        $product->price = $request->get('price');
-
         Session::flash('success', 'Product Updated successfully');
 
-        $product->save();
+        $product->update($input);
 
         return redirect('/products');
     }
