@@ -17,7 +17,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = \App\Product::with('owner')->get();
+        $products = \Cache::remember('products.index', 1, function(){
+            return \App\Product::with('owner')->get();
+        });
+
 
         return view('products.index')->with(['products' => $products]);
     }
