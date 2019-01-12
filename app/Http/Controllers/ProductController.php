@@ -13,7 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = \App\Product::all();
 
+        return view('products.index')->with(['products' => $products]);
     }
 
     /**
@@ -34,7 +36,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        \App\Product::create([
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'price' => $request->get('price'),
+            'count' => $request->get('count')
+        ]);
 
+        return redirect('/products');
     }
 
     /**
