@@ -21,7 +21,7 @@
 
             <tbody>
 
-                @foreach($products as $product)
+                @forelse($products as $product)
                     <tr>
                         <td>{{$product->name}}</td>
                         <td>{{$product->description}}</td>
@@ -36,8 +36,13 @@
                             </form>
                         </th>
                     </tr>
-                @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="5">Sorry no records found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
+        {!! $products->links() !!}
     </div>
 @endsection
