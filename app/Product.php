@@ -12,4 +12,9 @@ class Product extends Model
         'price',
         'description'
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(\App\User::class, 'user_id');
+    }
 }

@@ -15,6 +15,7 @@
                 <th>Description</th>
                 <th>Count</th>
                 <th>Price</th>
+                <th>Owner</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -27,6 +28,7 @@
                         <td>{{$product->description}}</td>
                         <td>{{$product->count}}</td>
                         <td>{{$product->price}}</td>
+                        <td>{{$product->owner->name}}</td>
                         <th><a href="{{ url('products/'. $product->id .'/edit')}}">Edit</a>
 
                             <form action="{{url('products/' . $product->id)}}" method="post" onClick="return confirm('Do you want to delete it?')">
@@ -43,6 +45,6 @@
                 @endforelse
             </tbody>
         </table>
-        {!! $products->links() !!}
+{{--        {!! $products->links() !!}--}}
     </div>
 @endsection

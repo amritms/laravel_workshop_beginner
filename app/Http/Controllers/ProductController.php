@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = \App\Product::paginate(10);
+        $products = \App\Product::with('owner')->get();
 
         return view('products.index')->with(['products' => $products]);
     }
