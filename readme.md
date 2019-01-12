@@ -32,4 +32,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - [x] form validation
 - [x] 7 Separate error message and success flash message
 - [x] 8 Simple refactoring in controller [validated inputs]
-- [x] 9 
+- [x] 9 Route model binding
+- [x] 10 validation via requests
+- [ ] 11 Model Factory, Faker, Seeder
+- [ ] N+1 Problem

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use App\Product;
 use Illuminate\Http\Request;
 use Session;
@@ -11,7 +13,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -33,18 +35,12 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ProductCreateRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCreateRequest $request)
     {
-        $input = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'count' => 'required',
-            'price' => 'required'
-        ]);
-
+        $input = $request->validated();
         \App\Product::create($input);
 
         return redirect('/products');
@@ -70,31 +66,22 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-
         return view('products.edit', compact('product'));
-
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param $product
+     * @param ProductUpdateRequest|Request $request
+     * @param Product $product
      * @return \Illuminate\Http\Response
      * @internal param int $id
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductUpdateRequest $request, Product $product)
     {
-        $input = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'count' => 'required',
-            'price' => 'required'
-        ]);
-
-        Session::flash('success', 'Product Updated successfully');
-
+        $input = $request->validated();
         $product->update($input);
+        Session::flash('success', 'Product Updated successfully');
 
         return redirect('/products');
     }
