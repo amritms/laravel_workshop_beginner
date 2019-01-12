@@ -104,6 +104,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-       //
+        $product = \App\Product::find($id);
+        $product->delete();
+
+        return redirect('/products');
     }
 }
