@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 
 class ProductController extends Controller
 {
@@ -93,6 +94,8 @@ class ProductController extends Controller
         $product->description = $request->get('description');
         $product->count = $request->get('count');
         $product->price = $request->get('price');
+
+        Session::flash('success', 'Product Updated successfully');
 
         $product->save();
 

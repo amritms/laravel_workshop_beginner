@@ -3,6 +3,9 @@
 @section('content')
     <div class="container">
         <div class="title">Simple Product Store</div>
+        @if(Session::has('success'))
+            <strong class="alert alert-success">{{ Session::get('success') }}</strong>
+        @endif
         <div class="links  float-right"><a href="{{url('products/create')}}" class="btn btn-primary">Add Product</a></div>
 
         <table class="table table-striped table-bordered">
