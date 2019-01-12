@@ -26,7 +26,7 @@
                         <td>{{$product->price}}</td>
                         <th><a href="{{ url('products/'. $product->id .'/edit')}}">Edit</a>
 
-                            <form action="{{url('products/' . $product->id)}}" method="post">
+                            <form action="{{url('products/' . $product->id)}}" method="post" onClick="return confirm('Do you want to delete it?')">
                                 @csrf
                                 <input type="hidden" name="_method" value="delete">
                                 <button type="submit">Delete</button>

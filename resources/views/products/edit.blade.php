@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="container" style="width: 50%">
+        @if($errors->all())
+            <ul class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
         <form action="{{url('products/' . $product->id)}}" method="post">
             <input type="hidden" name="_method" value="PUT">
             <h1>Enter Details to create a product</h1>
