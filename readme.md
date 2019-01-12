@@ -29,3 +29,5 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - [x] List Products
 - [x] Edit product
 - [x] Delete Product
+- [x] Separate error message and success flash message
+- [x] Simple refactoring in controller [validated inputs]
