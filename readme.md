@@ -35,4 +35,5 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - [x] 9 Route model binding
 - [x] 10 validation via requests
 - [x] 11 Model Factory, Faker, Seeder
-- [ ] 12 N+1 Problem
+- [x] 12 Pagination
+- [ ] 13 N+1 Problem
