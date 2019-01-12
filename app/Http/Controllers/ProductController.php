@@ -65,7 +65,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = \App\Product::find($id);
+
+        return view('products.edit', compact('product'));
+
     }
 
     /**
@@ -77,7 +80,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->validate([
+            'description' => 'required'
+        ]);
+
+        $product = \App\Product::find($id);
+
+        $product->name = $request->get('name');
+        $product->description = $request->get('description');
+        $product->count = $request->get('count');
+        $product->price = $request->get('price');
+
+        $product->save();
+
+        return redirect('/products');
     }
 
     /**
@@ -88,6 +104,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+       //
     }
 }

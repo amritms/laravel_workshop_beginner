@@ -12,6 +12,7 @@
                 <th>Description</th>
                 <th>Count</th>
                 <th>Price</th>
+                <th>Actions</th>
             </tr>
             </thead>
 
@@ -23,6 +24,7 @@
                         <td>{{$product->description}}</td>
                         <td>{{$product->count}}</td>
                         <td>{{$product->price}}</td>
+                        <th><a href="{{ url('products/'. $product->id .'/edit')}}">Edit</a></th>
                     </tr>
                 @endforeach
             </tbody>
