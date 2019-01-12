@@ -37,4 +37,4 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - [x] 11 Model Factory, Faker, Seeder
 - [x] 12 Pagination
 - [x] 13 N+1 Problem
-- [ ] 14 query caching
+- [x] 14 query caching
