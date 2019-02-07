@@ -10,7 +10,8 @@ class Product extends Model
         'name',
         'count',
         'price',
-        'description'
+        'description',
+        'user_id'
     ];
 
     public function owner()

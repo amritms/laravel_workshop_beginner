@@ -44,7 +44,9 @@ class ProductController extends Controller
     public function store(ProductCreateRequest $request)
     {
         $input = $request->validated();
+        $input['user_id'] = auth()->user()->id;
         \App\Product::create($input);
+        \Cache::forget('products.index');
 
         return redirect('/products');
     }
@@ -84,6 +86,7 @@ class ProductController extends Controller
     {
         $input = $request->validated();
         $product->update($input);
+        \Cache::forget('products.index');
         Session::flash('success', 'Product Updated successfully');
 
         return redirect('/products');
@@ -98,6 +101,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        \Cache::forget('products.index');
 
         return redirect('/products');
     }
